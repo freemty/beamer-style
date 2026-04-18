@@ -129,9 +129,13 @@
 % Hyperref colors (match theme)
 % ============================================================
 
-\hypersetup{
-  colorlinks=true,
-  linkcolor=themePrimary,
-  urlcolor=themeSecondary,
-  citecolor=themePrimary!70!black,
-}
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+  \hypersetup{
+    colorlinks=true,
+    linkcolor=themePrimary,
+    urlcolor=themeSecondary,
+    citecolor=themePrimary!70!black,
+  }%
+}{}
+\makeatother

@@ -6,8 +6,8 @@
 \usetheme{default}
 \usecolortheme{default}
 
-\newlength{\dimA}
-\newlength{\dimB}
+\newlength{\bsProgressDone}
+\newlength{\bsProgressRemain}
 
 % ---- Typography ----
 \usefonttheme{professionalfonts}
@@ -38,11 +38,11 @@
 \setbeamertemplate{footline}{%
   \nointerlineskip%
   \pgfmathsetmacro{\progressfrac}{\insertframenumber/\inserttotalframenumber}%
-  \pgfmathsetlength{\dimA}{\progressfrac\paperwidth}%
-  \pgfmathsetlength{\dimB}{\paperwidth-\dimA}%
+  \pgfmathsetlength{\bsProgressDone}{\progressfrac\paperwidth}%
+  \pgfmathsetlength{\bsProgressRemain}{\paperwidth-\bsProgressDone}%
   \hbox to\paperwidth{%
-    {\color{themePrimary}\rule{\dimA}{2pt}}%
-    {\color{themeSilver}\rule{\dimB}{2pt}}%
+    {\color{themePrimary}\rule{\bsProgressDone}{2pt}}%
+    {\color{themeSilver}\rule{\bsProgressRemain}{2pt}}%
   }%
   \vskip2pt%
   \hbox to\paperwidth{\hfill\usebeamerfont{footline}\usebeamercolor[fg]{structure}\insertframenumber\,/\,\inserttotalframenumber\hspace{8pt}}%
