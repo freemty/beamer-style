@@ -1,0 +1,119 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+
+\usepackage{amsmath,amssymb,booktabs,mathtools}
+\usepackage{graphicx,hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+% ---- Theme + Layout (edit these two lines to preview combinations) ----
+\input{../templates/beamer-colors}
+\input{../templates/layout-metropolis}
+
+\title{Beamer Style Preview}
+\subtitle{5 Themes × 4 Layouts}
+\author{Presenter: Demo}
+\institute{Shanghai Jiao Tong University}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\section{Color Palette}
+
+\begin{frame}{Theme Colors}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \begin{block}{Primary Block}
+      Block body uses \texttt{themeSilver} background.
+      Structure color follows \texttt{themePrimary}.
+    \end{block}
+
+    \begin{alertblock}{Alert Block}
+      Alert uses \texttt{themeAlert} — a warm contrasting tone.
+    \end{alertblock}
+
+    \column{0.48\textwidth}
+    \begin{exampleblock}{Example Block}
+      Example uses \texttt{themeExample} — a complementary hue.
+    \end{exampleblock}
+
+    \vskip8pt
+    Semantic commands:
+    \begin{itemize}
+      \item \pos{Positive} (blue)
+      \item \con{Negative} (orange)
+      \item \HL{Emphasis} (green)
+      \item \textcolor{neutral}{Neutral} (gray)
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\section{Typography}
+
+\begin{frame}{Lists and Structure}
+  \begin{itemize}
+    \item First-level item with \textbf{bold key phrase}
+    \begin{itemize}
+      \item Second-level detail
+      \begin{itemize}
+        \item Third-level note
+      \end{itemize}
+    \end{itemize}
+    \item Another top-level point
+  \end{itemize}
+
+  \vskip12pt
+
+  \begin{enumerate}
+    \item Numbered item one
+    \item Numbered item two
+    \item Numbered item three
+  \end{enumerate}
+\end{frame}
+
+\section{Mathematics}
+
+\begin{frame}{Equations and Theorems}
+  \begin{theorem}[Sample]
+    For all $n \geq 1$:
+    \[
+      \sum_{k=1}^{n} k = \frac{n(n+1)}{2}
+    \]
+  \end{theorem}
+
+  \begin{proof}
+    By induction on $n$. Base case $n=1$ is trivial.
+  \end{proof}
+\end{frame}
+
+\section{Diagrams}
+
+\begin{frame}{TikZ with Theme Colors}
+  \centering
+  \begin{tikzpicture}[
+    node distance=2.5cm,
+    box/.style={draw=themePrimary,fill=themeLight!30,rounded corners,
+                minimum width=2cm,minimum height=0.8cm,font=\small},
+    arr/.style={-{Stealth},thick,themePrimary}
+  ]
+    \node[box] (a) {Input};
+    \node[box,right of=a] (b) {Process};
+    \node[box,right of=b] (c) {Output};
+    \draw[arr] (a) -- (b);
+    \draw[arr] (b) -- (c);
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,noframenumbering]
+  \vfill
+  \begin{center}
+    {\Large\bfseries\usebeamercolor[fg]{title} Thank You}\\[8pt]
+    {\usebeamercolor[fg]{subtitle} Questions?}
+  \end{center}
+  \vfill
+\end{frame}
+
+\end{document}

@@ -1,0 +1,137 @@
+% ============================================================
+% Beamer Color System — Derived from Paper Style
+% Five themes: red (default), blue, gold, green, purple.
+% Switch by toggling \beamerthemename below.
+% ============================================================
+
+\newcommand{\beamerthemename}{red}
+
+\RequirePackage{xifthen}
+
+% ============================================================
+% Theme-dependent Beamer color mapping
+% ============================================================
+
+\ifthenelse{\equal{\beamerthemename}{red}}{
+  % ---- RED THEME: warm desaturated burgundy ----
+  \definecolor{themePrimary}{HTML}{5E3545}
+  \definecolor{themeSecondary}{HTML}{7A4D5E}
+  \definecolor{themeTertiary}{HTML}{3D1F2B}
+  \definecolor{themeLight}{HTML}{EAA8B9}
+  \definecolor{themeSilver}{HTML}{EFD4DB}
+  \definecolor{themeBg}{HTML}{F6F4F4}
+  \definecolor{themeBorder}{HTML}{D9CEC8}
+  \definecolor{themeAlert}{HTML}{D4734E}
+  \definecolor{themeExample}{HTML}{2A4438}
+}{%
+\ifthenelse{\equal{\beamerthemename}{blue}}{
+  % ---- BLUE THEME: desaturated slate blue ----
+  \definecolor{themePrimary}{HTML}{3C4A57}
+  \definecolor{themeSecondary}{HTML}{567080}
+  \definecolor{themeTertiary}{HTML}{242E37}
+  \definecolor{themeLight}{HTML}{B4C9DE}
+  \definecolor{themeSilver}{HTML}{D9E2EA}
+  \definecolor{themeBg}{HTML}{F4F5F6}
+  \definecolor{themeBorder}{HTML}{CBD1D6}
+  \definecolor{themeAlert}{HTML}{B8602A}
+  \definecolor{themeExample}{HTML}{2A6848}
+}{%
+\ifthenelse{\equal{\beamerthemename}{gold}}{
+  % ---- GOLD THEME: warm beige/gold ----
+  \definecolor{themePrimary}{HTML}{564D3D}
+  \definecolor{themeSecondary}{HTML}{7A6E56}
+  \definecolor{themeTertiary}{HTML}{362F22}
+  \definecolor{themeLight}{HTML}{DDCEB5}
+  \definecolor{themeSilver}{HTML}{EAE4D9}
+  \definecolor{themeBg}{HTML}{F6F5F4}
+  \definecolor{themeBorder}{HTML}{D6D2CB}
+  \definecolor{themeAlert}{HTML}{A85B3A}
+  \definecolor{themeExample}{HTML}{2A5448}
+}{%
+\ifthenelse{\equal{\beamerthemename}{green}}{
+  % ---- GREEN THEME: deep forest green ----
+  \definecolor{themePrimary}{HTML}{2A4438}
+  \definecolor{themeSecondary}{HTML}{3D6B54}
+  \definecolor{themeTertiary}{HTML}{162318}
+  \definecolor{themeLight}{HTML}{A8EACF}
+  \definecolor{themeSilver}{HTML}{D4EFE4}
+  \definecolor{themeBg}{HTML}{F4F6F5}
+  \definecolor{themeBorder}{HTML}{C8D9D2}
+  \definecolor{themeAlert}{HTML}{B85A28}
+  \definecolor{themeExample}{HTML}{3C4A57}
+}{
+  % ---- PURPLE THEME: deep plum ----
+  \definecolor{themePrimary}{HTML}{3E2548}
+  \definecolor{themeSecondary}{HTML}{5C3870}
+  \definecolor{themeTertiary}{HTML}{231230}
+  \definecolor{themeLight}{HTML}{DFA8EA}
+  \definecolor{themeSilver}{HTML}{EBD4EF}
+  \definecolor{themeBg}{HTML}{F6F4F6}
+  \definecolor{themeBorder}{HTML}{D6C8D9}
+  \definecolor{themeAlert}{HTML}{B8602A}
+  \definecolor{themeExample}{HTML}{2A4438}
+}}}}
+
+% ============================================================
+% Map to Beamer color slots
+% ============================================================
+
+\setbeamercolor{structure}{fg=themePrimary}
+\setbeamercolor{palette primary}{bg=themePrimary,fg=white}
+\setbeamercolor{palette secondary}{bg=themeSecondary,fg=white}
+\setbeamercolor{palette tertiary}{bg=themeTertiary,fg=white}
+\setbeamercolor{palette quaternary}{bg=themePrimary!80!black,fg=white}
+
+\setbeamercolor{title}{fg=themePrimary}
+\setbeamercolor{frametitle}{fg=themePrimary}
+\setbeamercolor{subtitle}{fg=themeSecondary}
+\setbeamercolor{author}{fg=themePrimary!80!black}
+\setbeamercolor{institute}{fg=themeSecondary}
+\setbeamercolor{date}{fg=themeSecondary}
+
+\setbeamercolor{normal text}{fg=black!85,bg=white}
+\setbeamercolor{alerted text}{fg=themeAlert}
+\setbeamercolor{example text}{fg=themeExample}
+
+\setbeamercolor{block title}{bg=themePrimary,fg=white}
+\setbeamercolor{block body}{bg=themeSilver!40}
+\setbeamercolor{block title alerted}{bg=themeAlert,fg=white}
+\setbeamercolor{block body alerted}{bg=themeAlert!8}
+\setbeamercolor{block title example}{bg=themeExample,fg=white}
+\setbeamercolor{block body example}{bg=themeExample!8}
+
+\setbeamercolor{itemize item}{fg=themePrimary}
+\setbeamercolor{itemize subitem}{fg=themeSecondary}
+\setbeamercolor{itemize subsubitem}{fg=themeSecondary!70}
+\setbeamercolor{enumerate item}{fg=themePrimary}
+\setbeamercolor{enumerate subitem}{fg=themeSecondary}
+
+\setbeamercolor{section in toc}{fg=themePrimary}
+\setbeamercolor{subsection in toc}{fg=themeSecondary}
+
+\setbeamercolor{footnote mark}{fg=themePrimary}
+\setbeamercolor{caption name}{fg=themePrimary}
+
+% ============================================================
+% Semantic color commands (colorblind-safe)
+% ============================================================
+
+\definecolor{positive}{HTML}{0173B2}
+\definecolor{negative}{HTML}{DE8F05}
+\definecolor{emphasis}{HTML}{029E73}
+\definecolor{neutral}{gray}{0.55}
+
+\newcommand{\pos}[1]{\textcolor{positive}{#1}}
+\newcommand{\con}[1]{\textcolor{negative}{#1}}
+\newcommand{\HL}[1]{\textcolor{emphasis}{#1}}
+
+% ============================================================
+% Hyperref colors (match theme)
+% ============================================================
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=themePrimary,
+  urlcolor=themeSecondary,
+  citecolor=themePrimary!70!black,
+}

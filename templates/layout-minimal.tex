@@ -1,0 +1,54 @@
+% ============================================================
+% Layout: Minimal — Ultra-clean, zero decoration
+% Maximum content density, no visual overhead.
+% ============================================================
+
+\usetheme{default}
+\usecolortheme{default}
+
+% ---- Typography ----
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{institute}{size=\small}
+\setbeamerfont{date}{size=\small}
+
+% ---- Remove all chrome ----
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+
+% ---- Frame title: just text ----
+\setbeamertemplate{frametitle}{%
+  \vskip8pt%
+  \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle%
+  \vskip4pt%
+}
+
+% ---- Footline: page number only, bottom-right ----
+\setbeamertemplate{footline}{%
+  \vskip2pt%
+  \hbox to\paperwidth{\hfill\usebeamerfont{footline}\usebeamercolor[fg]{structure}\insertframenumber\hspace{10pt}}%
+  \vskip6pt%
+}
+
+% ---- Title page: centered, spacious ----
+\setbeamertemplate{title page}{%
+  \vfill
+  \begin{center}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\[6pt]
+    \ifx\insertsubtitle\empty\else
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\\[12pt]
+    \fi
+    \vskip16pt
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\\[4pt]
+    {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}\\[4pt]
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
+  \end{center}
+  \vfill
+}
+
+% ---- Itemize: em-dash style ----
+\setbeamertemplate{itemize item}{\small\raise1pt\hbox{--}}
+\setbeamertemplate{itemize subitem}{\scriptsize\raise1pt\hbox{$\cdot$}}
+\setbeamertemplate{itemize subsubitem}{\scriptsize\raise1pt\hbox{$\circ$}}

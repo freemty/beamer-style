@@ -1,0 +1,44 @@
+% ============================================================
+% Layout: Classic — Traditional academic (Madrid-inspired)
+% Full footline with author/title/date, navigation dots.
+% ============================================================
+
+\usetheme{Madrid}
+\useinnertheme{rounded}
+
+% ---- Typography ----
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+
+% ---- Remove navigation symbols (footline has enough) ----
+\setbeamertemplate{navigation symbols}{}
+
+% ---- Footline: 3-part with author | title | date+page ----
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.5ex,dp=1ex,center]{palette primary}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.334\paperwidth,ht=2.5ex,dp=1ex,center]{palette secondary}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.5ex,dp=1ex,right]{palette tertiary}%
+      \usebeamerfont{date in head/foot}\insertshortdate\hspace{2em}%
+      \insertframenumber\,/\,\inserttotalframenumber\hspace{4pt}
+    \end{beamercolorbox}%
+  }%
+}
+
+% ---- Headline: section navigation dots ----
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[ht=3.5ex,dp=1.5ex]{palette quaternary}%
+    \insertsectionnavigationhorizontal{\paperwidth}{\hskip0pt plus1fill}{\hskip0pt plus1fill}
+  \end{beamercolorbox}%
+}
+
+% ---- Itemize: themed symbols ----
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}[square]

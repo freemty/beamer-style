@@ -1,0 +1,87 @@
+% ============================================================
+% Layout: Focus — High-contrast, large titles
+% Designed for lightning talks and emphasis-driven presentations.
+% ============================================================
+
+\usetheme{default}
+\usecolortheme{default}
+
+% ---- Typography: larger titles ----
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\large,series=\mdseries}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{institute}{size=\normalsize}
+\setbeamerfont{date}{size=\normalsize}
+\setbeamerfont{section title}{size=\huge,series=\bfseries}
+
+% ---- Remove navigation ----
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+
+% ---- Frame title: large with thick rule ----
+\setbeamertemplate{frametitle}{%
+  \vskip8pt%
+  \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle%
+  \ifx\insertframesubtitle\empty\else
+    \\[2pt]\usebeamerfont{framesubtitle}\usebeamercolor[fg]{subtitle}\insertframesubtitle%
+  \fi
+  \vskip4pt%
+  {\color{themePrimary}\hrule height 1.5pt}%
+  \vskip8pt%
+}
+
+% ---- Footline: bold page number ----
+\setbeamertemplate{footline}{%
+  \vskip2pt%
+  \hbox to\paperwidth{%
+    \hfill\usebeamerfont{footline}\bfseries\usebeamercolor[fg]{structure}%
+    \insertframenumber\hspace{10pt}%
+  }%
+  \vskip6pt%
+}
+
+% ---- Title page: centered, dramatic ----
+\setbeamertemplate{title page}{%
+  \vfill
+  \begin{center}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\[10pt]
+    \ifx\insertsubtitle\empty\else
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\\[16pt]
+    \fi
+    {\color{themePrimary}\rule{0.4\paperwidth}{1.5pt}}\\[16pt]
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\\[6pt]
+    {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}\\[6pt]
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
+  \end{center}
+  \vfill
+}
+
+% ---- Section page: full-screen ----
+\AtBeginSection{%
+  \begin{frame}[plain,noframenumbering]
+    \vfill
+    \begin{center}
+      {\usebeamerfont{section title}\usebeamercolor[fg]{structure}\insertsectionhead}\\[8pt]
+      {\color{themePrimary}\rule{0.2\paperwidth}{1.5pt}}
+    \end{center}
+    \vfill
+  \end{frame}
+}
+
+% ---- Focus frame command: colored background, white text ----
+\newenvironment{focusframe}[1][]{%
+  \setbeamercolor{background canvas}{bg=themePrimary}%
+  \setbeamercolor{normal text}{fg=white}%
+  \usebeamercolor[fg]{normal text}%
+  \begin{frame}[plain,environment=focusframe]%
+    \vfill\begin{center}\Large\bfseries%
+}{%
+    \end{center}\vfill\end{frame}%
+}
+
+% ---- Itemize: bold markers ----
+\setbeamertemplate{itemize item}{\textbf{\textbullet}}
+\setbeamertemplate{itemize subitem}{\textbf{--}}
+\setbeamertemplate{itemize subsubitem}{$\cdot$}
