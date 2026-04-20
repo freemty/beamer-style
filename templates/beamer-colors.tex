@@ -4,7 +4,7 @@
 % Switch by toggling \beamerthemename below.
 % ============================================================
 
-\newcommand{\beamerthemename}{red}
+\providecommand{\beamerthemename}{red}
 
 \RequirePackage{xifthen}
 
@@ -59,7 +59,8 @@
   \definecolor{themeBorder}{HTML}{C8D9D2}
   \definecolor{themeAlert}{HTML}{B85A28}
   \definecolor{themeExample}{HTML}{3C4A57}
-}{
+}{%
+\ifthenelse{\equal{\beamerthemename}{purple}}{
   % ---- PURPLE THEME: deep plum ----
   \definecolor{themePrimary}{HTML}{3E2548}
   \definecolor{themeSecondary}{HTML}{5C3870}
@@ -70,7 +71,10 @@
   \definecolor{themeBorder}{HTML}{D6C8D9}
   \definecolor{themeAlert}{HTML}{B8602A}
   \definecolor{themeExample}{HTML}{2A4438}
-}}}}
+}{
+  \PackageError{beamer-colors}{Unknown theme '\beamerthemename'.%
+    Valid themes: red, blue, gold, green, purple}{}
+}}}}} % end: purple / green / gold / blue / red
 
 % ============================================================
 % Map to Beamer color slots

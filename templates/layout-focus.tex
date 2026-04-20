@@ -70,15 +70,17 @@
   \end{frame}
 }
 
-% ---- Focus frame command: colored background, white text ----
-\newenvironment{focusframe}[1][]{%
-  \setbeamercolor{background canvas}{bg=themePrimary}%
-  \setbeamercolor{normal text}{fg=white}%
-  \usebeamercolor[fg]{normal text}%
-  \begin{frame}[plain,environment=focusframe]%
-    \vfill\begin{center}\Large\bfseries%
-}{%
-    \end{center}\vfill\end{frame}%
+% ---- Focus frame: colored background, white text ----
+% Uses a command (not environment) so TeX grouping isolates the color changes.
+\newcommand{\focusframe}[1]{%
+  {%
+    \setbeamercolor{background canvas}{bg=themePrimary}%
+    \setbeamercolor{normal text}{fg=white}%
+    \usebeamercolor[fg]{normal text}%
+    \begin{frame}[plain]%
+      \vfill\begin{center}\Large\bfseries #1\end{center}\vfill%
+    \end{frame}%
+  }%
 }
 
 % ---- Itemize: bold markers ----
