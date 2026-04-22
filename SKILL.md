@@ -4,13 +4,13 @@ description: >
   Use when setting up Beamer slide themes, switching slide color themes,
   or ensuring visual consistency between papers and presentations.
   Triggers: /beamer-style, slide theme, 幻灯片配色, beamer配色, 演示风格.
-  Sister skill of paper-style — shares the same 5-theme color system.
+  If paper-style is installed, shares the same 5-theme color system for unified paper + slides identity.
 ---
 
 # Beamer Style — Academic Slide Theme System
 
 5 low-saturation themes (red/blue/gold/green/purple) × 4 layouts for unified Beamer visual identity.
-Sister skill of `paper-style` — same color palette, different medium.
+Pairs well with `paper-style` for a consistent visual identity across papers and slides.
 
 ## Subcommands
 
