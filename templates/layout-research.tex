@@ -1,0 +1,127 @@
+% ============================================================
+% Layout: Research - restrained Beamer for paper talks
+% ============================================================
+
+\usetheme{default}
+\usecolortheme{default}
+\RequirePackage{tikz}
+\RequirePackage{hyperref}
+
+\newlength{\bsProgressDone}
+\newlength{\bsProgressRemain}
+
+% ---- Typography ----
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\normalsize,series=\mdseries}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{institute}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{section title}{size=\Large,series=\bfseries}
+\setbeamerfont{footline}{size=\tiny}
+
+% ---- Color discipline ----
+\setbeamercolor{normal text}{fg=black!88,bg=white}
+\setbeamercolor{title}{fg=black!88}
+\setbeamercolor{frametitle}{fg=black!88}
+\setbeamercolor{subtitle}{fg=black!55}
+\setbeamercolor{structure}{fg=black!75}
+\setbeamercolor{author}{fg=black!75}
+\setbeamercolor{institute}{fg=black!55}
+\setbeamercolor{date}{fg=black!55}
+\setbeamercolor{section in toc}{fg=black!78}
+\setbeamercolor{subsection in toc}{fg=black!58}
+\setbeamercolor{caption name}{fg=black!72}
+\setbeamercolor{bibliography item}{fg=black!65}
+\setbeamercolor{bibliography entry author}{fg=black!78}
+\setbeamercolor{bibliography entry title}{fg=black!78}
+\setbeamercolor{bibliography entry location}{fg=black!55}
+\setbeamercolor{bibliography entry note}{fg=black!55}
+\hypersetup{linkcolor=black!78,urlcolor=black!55,citecolor=black!78}
+
+% ---- Remove navigation ----
+\setbeamertemplate{navigation symbols}{}
+
+% ---- Frame title ----
+\setbeamertemplate{frametitle}{%
+  \vskip6pt%
+  \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle%
+  \ifx\insertframesubtitle\empty\else
+    \\[2pt]\usebeamerfont{framesubtitle}\usebeamercolor[fg]{subtitle}\insertframesubtitle%
+  \fi
+  \vskip4pt%
+  {\color{black!78}\hrule height 0.7pt}%
+  \vskip7pt%
+}
+
+% ---- Footline: quiet progress bar ----
+\setbeamertemplate{footline}{%
+  \nointerlineskip%
+  \pgfmathsetmacro{\progressfrac}{\insertframenumber/\inserttotalframenumber}%
+  \pgfmathsetlength{\bsProgressDone}{\progressfrac\paperwidth}%
+  \pgfmathsetlength{\bsProgressRemain}{\paperwidth-\bsProgressDone}%
+  \hbox to\paperwidth{%
+    {\color{black!70}\rule{\bsProgressDone}{1.6pt}}%
+    {\color{black!10}\rule{\bsProgressRemain}{1.6pt}}%
+  }%
+  \vskip2pt%
+  \hbox to\paperwidth{\hfill\usebeamerfont{footline}\color{black!38}\insertframenumber\,/\,\inserttotalframenumber\hspace{8pt}}%
+  \vskip4pt%
+}
+
+% ---- Title page: title, speaker, date only ----
+\setbeamertemplate{title page}{%
+  \vfill
+  \begin{center}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\par
+    \ifx\insertsubtitle\empty\else
+      \vspace{0.5em}{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\par
+    \fi
+    \vspace{1.5em}
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\par
+    \ifx\insertinstitute\empty\else
+      \vspace{0.25em}{\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}\par
+    \fi
+    \vspace{0.25em}
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
+  \end{center}
+  \vfill
+}
+
+% ---- Section page ----
+\AtBeginSection{%
+  \begin{frame}[plain,noframenumbering]
+    \vfill
+    \begin{center}
+      {\usebeamerfont{section title}\color{black!82}\insertsectionhead}
+    \end{center}
+    \vfill
+  \end{frame}
+}
+
+% ---- Lists ----
+\setbeamertemplate{itemize item}{\small\raise1pt\hbox{\textbullet}}
+\setbeamertemplate{itemize subitem}{\scriptsize\raise1pt\hbox{--}}
+\setbeamertemplate{itemize subsubitem}{\scriptsize\raise1pt\hbox{$\cdot$}}
+\setbeamercolor{itemize item}{fg=black!80}
+\setbeamercolor{itemize subitem}{fg=black!65}
+\setbeamercolor{itemize subsubitem}{fg=black!55}
+
+% ---- Citation helpers ----
+\providecommand{\paperlink}[2]{\href{#2}{#1}}
+\providecommand{\arxivcite}[1]{\paperlink{arXiv:#1}{https://arxiv.org/abs/#1}}
+\providecommand{\stdcite}[3]{#1, \emph{#2}, \arxivcite{#3}}
+\providecommand{\citesep}{\\[-0.1em]}
+\providecommand{\slidecite}[1]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[
+      anchor=south west,
+      align=left,
+      text width=0.92\paperwidth,
+      inner sep=0pt,
+      font=\tiny,
+      text=black!38
+    ] at ([xshift=0.68cm,yshift=0.72cm]current page.south west) {\raggedright #1\par};
+  \end{tikzpicture}%
+}

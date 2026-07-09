@@ -32,6 +32,8 @@ When user says "switch layout to {name}" or "change to {layout}":
 3. Compile and verify
 4. Report: "Switched to {name} layout."
 
+Supported layouts: `metropolis`, `minimal`, `classic`, `focus`, `research`.
+
 ### Ongoing Assistance
 
 When the user asks for help with slides:
@@ -48,6 +50,8 @@ When the user asks for help with slides:
 - **TikZ:** Use `themePrimary`, `themeSecondary`, `themeLight` in diagrams for consistency.
 
 - **Compile:** Always use XeLaTeX: `xelatex -interaction=nonstopmode FILE.tex`
+
+- **Research decks:** If the active layout is `research`, keep citations in `\slidecite{...}` and leave paper/story decisions to `research-slides`.
 
 ### Color Quick Reference
 

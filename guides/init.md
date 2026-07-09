@@ -7,7 +7,7 @@ You are setting up a Beamer slides project with the Beamer Style theme system.
 ### Arguments
 
 - `--theme NAME`: one of red, blue, gold, green, purple. Default: blue.
-- `--layout NAME`: one of metropolis, minimal, classic, focus. Default: metropolis.
+- `--layout NAME`: one of metropolis, minimal, classic, focus, research. Default: metropolis.
 
 ### Steps
 

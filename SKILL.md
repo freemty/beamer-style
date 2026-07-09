@@ -9,7 +9,7 @@ description: >
 
 # Beamer Style — Academic Slide Theme System
 
-5 low-saturation themes (red/blue/gold/green/purple) × 4 layouts for unified Beamer visual identity.
+5 low-saturation themes (red/blue/gold/green/purple) × 5 layouts for unified Beamer visual identity.
 Pairs well with `paper-style` for a consistent visual identity across papers and slides.
 
 ## Subcommands
@@ -21,7 +21,7 @@ Pairs well with `paper-style` for a consistent visual identity across papers and
 
 **Arguments for init:**
 - `--theme NAME`: red, blue (default), gold, green, purple
-- `--layout NAME`: metropolis (default), minimal, classic, focus
+- `--layout NAME`: metropolis (default), minimal, classic, focus, research
 
 **Read and execute the corresponding guide file.**
 
@@ -43,6 +43,7 @@ Pairs well with `paper-style` for a consistent visual identity across papers and
 | `minimal` | Zero decoration, maximum content | Dense technical presentations |
 | `classic` | Madrid-inspired, full footline, nav dots | Journal clubs, lectures |
 | `focus` | Large titles, thick rules, focus frames | Lightning talks, defenses |
+| `research` | Restrained black/gray, source footnotes, dense references | Paper talks, reading groups, research surveys |
 
 ## Templates
 
@@ -53,6 +54,7 @@ Pairs well with `paper-style` for a consistent visual identity across papers and
 | `templates/layout-minimal.tex` | Ultra-clean zero-decoration layout |
 | `templates/layout-classic.tex` | Traditional academic layout |
 | `templates/layout-focus.tex` | High-contrast emphasis layout |
+| `templates/layout-research.tex` | Minimal research-talk layout with citation helpers |
 
 ## Quick Reference — Guard Mode
 
@@ -85,3 +87,7 @@ Pairs well with `paper-style` for a consistent visual identity across papers and
 
 **Theme switch** (guard mode): update `\beamerthemename` in `beamer-colors.tex`.
 **Layout switch** (guard mode): swap `\input{layout-*}` line in main `.tex`.
+
+**Research slides:** For story structure, paper figures/tables, citation discipline,
+and rendered-PDF QA, use `research-slides`. This skill only provides the Beamer
+theme/layout layer.
