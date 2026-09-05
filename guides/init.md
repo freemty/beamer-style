@@ -1,6 +1,6 @@
 # Init Guide — Scaffold Beamer Project with Theme
 
-## Instructions for Claude
+## Execution guidance
 
 You are setting up a Beamer slides project with the Beamer Style theme system.
 
@@ -12,7 +12,7 @@ You are setting up a Beamer slides project with the Beamer Style theme system.
 ### Steps
 
 1. **Detect target directory.** If the project has a `slides/` directory, use it.
-   Otherwise ask: "Should I create a `slides/` directory, or place files in the project root?"
+   Otherwise use the task-specified location, or create `slides/` by default.
 
 2. **Check for existing files.** Look for `beamer-colors.tex`, `layout-*.tex` in the target.
    - If any exist, ask: "Found existing {files}. Overwrite, backup (.bak), or abort?"
@@ -46,7 +46,7 @@ You are setting up a Beamer slides project with the Beamer Style theme system.
    \title{Title}
    \subtitle{Subtitle}
    \author{Presenter: [Name]}
-   \institute{Shanghai Jiao Tong University}
+   \institute{[Institution]}
    \date{\today}
 
    \begin{document}
@@ -81,7 +81,7 @@ You are setting up a Beamer slides project with the Beamer Style theme system.
 
 7. **Check paper-style sibling.** If a `colors.tex` from paper-style exists in the project
    (search `paper/`, then root), compare `\themename` with `\beamerthemename`.
-   - If they differ, warn: "Paper uses {X} theme but slides use {Y}. Match them?"
+   - If they differ, report the difference only when cross-artifact consistency is in scope. An explicit deck profile takes precedence.
    - If user agrees, update `\beamerthemename` to match.
 
 8. **Report success.** Print:

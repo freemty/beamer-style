@@ -1,19 +1,19 @@
 # Guard Guide — Beamer Style Guardian Mode
 
-## Instructions for Claude
+## Execution guidance
 
 You are acting as a style guardian for an existing Beamer slides project.
 
 ### On Entry
 
 1. **Find project theme.** Read `beamer-colors.tex` (search slides/, then root). Extract
-   the `\beamerthemename` value. If not found, suggest running `/beamer-style init` first.
+   the `\beamerthemename` value. If not found, use the requested existing style; initialize the Beamer Style theme only if setup was requested.
 
 2. **Find layout.** Grep for `\input{layout-` in the main `.tex` file to identify
    which layout is active. Report it.
 
 3. **Check paper-style sibling.** If `colors.tex` (paper-style) exists in the project,
-   compare themes. Warn on mismatch.
+   compare themes. A deliberately different deck theme is valid; do not change it automatically.
 
 4. **Confirm.** Print: "Active: {theme} theme + {layout} layout. Ready to assist."
 
@@ -49,7 +49,7 @@ When the user asks for help with slides:
 
 - **TikZ:** Use `themePrimary`, `themeSecondary`, `themeLight` in diagrams for consistency.
 
-- **Compile:** Always use XeLaTeX: `xelatex -interaction=nonstopmode FILE.tex`
+- **Compile:** Use the project build configuration; the bundled fontspec layouts require XeLaTeX or LuaLaTeX. Check the actual build and rendered output.
 
 - **Research decks:** If the active layout is `research`, keep citations in `\slidecite{...}` and leave paper/story decisions to `research-slides`.
 
